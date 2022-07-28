@@ -1,0 +1,40 @@
+USER SYMBOL by DSCH 3.5
+DATE 5/18/2022 10:33:17 PM
+SYM  #InRegister
+BB(0,0,40,60)
+TITLE 10 -7  #InRegister
+MODEL 6000
+REC(5,5,30,50)
+PIN(0,20,0.00,0.00)DataIn3
+PIN(0,10,0.00,0.00)EnableIn
+PIN(0,50,0.00,0.00)DataIn0
+PIN(0,40,0.00,0.00)DataIn1
+PIN(0,30,0.00,0.00)DataIn2
+PIN(40,40,2.00,1.00)B0
+PIN(40,30,2.00,1.00)B1
+PIN(40,20,2.00,1.00)B2
+PIN(40,10,2.00,1.00)B3
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(0,50,5,50)
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(35,40,40,40)
+LIG(35,30,40,30)
+LIG(35,20,40,20)
+LIG(35,10,40,10)
+LIG(5,5,5,55)
+LIG(5,5,35,5)
+LIG(35,5,35,55)
+LIG(35,55,5,55)
+VLG module InRegister( DataIn3,EnableIn,DataIn0,DataIn1,DataIn2,B0,B1,B2,
+VLG  B3);
+VLG  input DataIn3,EnableIn,DataIn0,DataIn1,DataIn2;
+VLG  output B0,B1,B2,B3;
+VLG  wire ;
+VLG  bufif1 #(1) bufif1_1(B0,DataIn0,EnableIn);
+VLG  bufif1 #(1) bufif1_2(B1,DataIn1,EnableIn);
+VLG  bufif1 #(1) bufif1_3(B2,DataIn2,EnableIn);
+VLG  bufif1 #(1) bufif1_4(B3,DataIn3,EnableIn);
+VLG endmodule
+FSYM

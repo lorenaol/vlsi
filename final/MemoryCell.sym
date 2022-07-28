@@ -1,0 +1,30 @@
+USER SYMBOL by DSCH 3.5
+DATE 5/20/2022 9:41:09 AM
+SYM  #MemoryCell
+BB(0,0,40,40)
+TITLE 10 -7  #MemoryCell
+MODEL 6000
+REC(5,5,30,30)
+PIN(0,10,0.00,0.00)Write
+PIN(0,30,0.00,0.00)Data
+PIN(0,20,0.00,0.00)Read
+PIN(40,10,2.00,1.00)Q
+LIG(0,10,5,10)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(35,10,40,10)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG module MemoryCell( Write,Data,Read,Q);
+VLG  input Write,Data,Read;
+VLG  output Q;
+VLG  wire w3,w5,w6,;
+VLG  nmos #(1) nmos_1(Data,w3,Write); // 0.3u 0.07u
+VLG  not #(1) inv_2(w5,w3);
+VLG  not #(2) inv_3(w6,w5);
+VLG  pmos #(2) pmos_4(w6,w3,Write); // 0.5u 0.07u
+VLG  nmos #(1) nmos_5(Q,w6,Read); // 0.3u 0.07u
+VLG endmodule
+FSYM

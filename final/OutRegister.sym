@@ -1,0 +1,46 @@
+USER SYMBOL by DSCH 3.5
+DATE 5/19/2022 11:35:13 AM
+SYM  #OutRegister
+BB(0,0,40,80)
+TITLE 10 -7  #OutRegister
+MODEL 6000
+REC(5,5,30,70)
+PIN(0,40,0.00,0.00)IB3
+PIN(0,30,0.00,0.00)LoadOut
+PIN(0,20,0.00,0.00)MainClock
+PIN(0,10,0.00,0.00)MainReset
+PIN(0,70,0.00,0.00)IB0
+PIN(0,60,0.00,0.00)IB1
+PIN(0,50,0.00,0.00)IB2
+PIN(40,10,2.00,1.00)Out3
+PIN(40,40,2.00,1.00)Out0
+PIN(40,30,2.00,1.00)Out1
+PIN(40,20,2.00,1.00)Out2
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(0,70,5,70)
+LIG(0,60,5,60)
+LIG(0,50,5,50)
+LIG(35,10,40,10)
+LIG(35,40,40,40)
+LIG(35,30,40,30)
+LIG(35,20,40,20)
+LIG(5,5,5,75)
+LIG(5,5,35,5)
+LIG(35,5,35,75)
+LIG(35,75,5,75)
+VLG module OutRegister( IB3,LoadOut,MainClock,MainReset,IB0,IB1,IB2,Out3,
+VLG  Out0,Out1,Out2);
+VLG  input IB3,LoadOut,MainClock,MainReset,IB0,IB1,IB2;
+VLG  output Out3,Out0,Out1,Out2;
+VLG  wire w4,w5,w7,w10,w13,w15,;
+VLG  dreg #(4) dreg_1(Out0,w7,IB0,w4,w5);
+VLG  dreg #(4) dreg_2(Out1,w10,IB1,w4,w5);
+VLG  dreg #(4) dreg_3(Out2,w13,IB2,w4,w5);
+VLG  dreg #(4) dreg_4(Out3,w15,IB3,w4,w5);
+VLG  nand #(4) nand2_5(w5,MainClock,LoadOut);
+VLG  not #(3) inv_6(w4,MainReset);
+VLG endmodule
+FSYM

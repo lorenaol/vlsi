@@ -1,0 +1,30 @@
+USER SYMBOL by DSCH 3.5
+DATE 5/18/2022 11:24:46 AM
+SYM  #FullAdder
+BB(0,0,40,40)
+TITLE 10 -7  #FullAdder
+MODEL 6000
+REC(5,5,30,30)
+PIN(0,30,0.00,0.00)A
+PIN(0,20,0.00,0.00)B
+PIN(0,10,0.00,0.00)C
+PIN(40,10,2.00,1.00)Sum
+PIN(40,20,2.00,1.00)Carry
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(0,10,5,10)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,35)
+LIG(5,5,35,5)
+LIG(35,5,35,35)
+LIG(35,35,5,35)
+VLG module FullAdder( A,B,C,Sum,Carry);
+VLG  input A,B,C;
+VLG  output Sum,Carry;
+VLG  wire w4,;
+VLG  xor #(3) xor2_1(w4,A,B);
+VLG  xor #(3) xor2_2(Sum,w4,C);
+VLG  assign Carry=(A&B)|(C&(A|B));
+VLG endmodule
+FSYM
